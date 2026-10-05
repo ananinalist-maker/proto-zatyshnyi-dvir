@@ -399,7 +399,7 @@ button.qb__f{cursor:pointer;transition:background-color .15s}
 .rooms-ph button{position:relative;padding:0;border:0;border-radius:var(--r-sm);overflow:hidden;cursor:zoom-in;background:var(--paper-2);aspect-ratio:4/3}
 .rooms-ph img{width:100%;height:100%;object-fit:cover;transition:transform .9s var(--ease)}
 @media (hover:hover){ .rooms-ph button:hover img{transform:scale(1.04)} }
-.rooms-ph button span{position:absolute;left:8px;right:8px;bottom:8px;width:max-content;max-width:calc(100% - 16px);padding:3px 9px;border-radius:8px;background:rgba(17,39,26,.66);font:700 12px/1.3 var(--f-sans);color:#FBFAF5;text-align:left}
+.rooms-ph button span:not(.own-mark){position:absolute;left:8px;right:8px;bottom:8px;width:max-content;max-width:calc(100% - 16px);padding:3px 9px;border-radius:8px;background:rgba(17,39,26,.66);font:700 12px/1.3 var(--f-sans);color:#FBFAF5;text-align:left}
 .rooms-ph .pnote{grid-column:1/-1}
 @media (max-width:699px){ .rooms-ph{grid-template-columns:minmax(0,1fr) minmax(0,1fr)} }
 .hnotes{display:grid;gap:10px;margin-top:22px}
@@ -495,7 +495,7 @@ button.qb__f{cursor:pointer;transition:background-color .15s}
 @media (hover:hover){ .gal button:hover img{transform:scale(1.04)} }
 .gal .w2{grid-column:span 2}
 .gal .h2{grid-row:span 2}
-.gal .own-mark{position:absolute;left:8px;top:8px;padding:2px 9px 3px;border-radius:8px;background:rgba(255,253,248,.92);font:400 13px/1.3 var(--f-hand);color:var(--forest)}
+.own-mark{position:absolute;z-index:2;left:8px;top:8px;padding:2px 9px 3px;border-radius:8px;background:rgba(255,253,248,.92);font:400 13px/1.3 var(--f-hand);color:var(--forest)}
 .gal__hint{margin-top:16px;font:700 13px/1.3 var(--f-sans);color:var(--note)}
 @media (max-width:760px){
   .gal{grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:140px;gap:8px}
@@ -895,7 +895,7 @@ textarea.inp{height:auto;min-height:92px;padding:13px 14px;line-height:1.45;resi
   <symbol id="i-window" viewBox="0 0 24 24"><rect x="3.5" y="4.5" width="17" height="15" rx="1.5"/><path d="M12 4.5v15M3.5 12h17"/></symbol>
 </svg>
 
-<div class="proto" role="note">Прототип сайту садиби <b>«Затишний двір»</b>.<span class="proto__more"> Фото басейну й котеджів від господині, решта даних з Google-картки, karpaty.info та Instagram садиби.</span></div>
+<div class="proto" role="note">Прототип сайту садиби <b>«Затишний двір»</b>.<span class="proto__more"> Фото від господині та гостей садиби, дані з Google-картки, karpaty.info та Instagram садиби.</span></div>
 
 <header class="header" id="header">
   <div class="wrap header__in">
@@ -1019,7 +1019,7 @@ textarea.inp{height:auto;min-height:92px;padding:13px 14px;line-height:1.45;resi
         <figcaption>Котедж з критою терасою</figcaption>
       </figure>
     </div>
-    <p class="own__note" data-rv>Ці три знімки надіслала господиня, пані Оксана. Інші фото садиби на сторінці з Google-картки.</p>
+    <p class="own__note" data-rv>Фото з позначкою «фото господині» надіслала пані Оксана, решта знімків садиби з Google-картки.</p>
     <dl class="stats" data-rv>
       <div><dt>4,8</dt><dd>у Google, 71 відгук<small>Google Maps</small></dd></div>
       <div><dt>6</dt><dd>котеджів з терасами<small>karpaty.info</small></dd></div>
@@ -1140,11 +1140,11 @@ textarea.inp{height:auto;min-height:92px;padding:13px 14px;line-height:1.45;resi
       </div>
     </div>
     <div class="rooms-ph" data-rv>
-      <button class="js-lb" type="button" data-cap="Кухонний куток і ліжко в котеджі"><img src="img/room-kitchen.jpg" width="1200" height="900" alt="Кімната з дерев'яними стінами: кухонний куток з мийкою, плитою і мікрохвильовкою, стіл з табуретами, ліжко" loading="lazy" decoding="async"><span>Кухонний куток</span></button>
-      <button class="js-lb" type="button" data-cap="Спальня в котеджі"><img src="img/room-bed.jpg" width="1080" height="810" alt="Двоспальне ліжко з картатим покривалом, над ним картина з пейзажем" loading="lazy" decoding="async"><span>Спальня</span></button>
-      <button class="js-lb" type="button" data-cap="Тераса котеджу"><img src="img/terrace-chairs.jpg" width="900" height="1200" alt="Крита тераса: два дерев'яні стільці, столик, поруч смерека" loading="lazy" decoding="async"><span>Тераса</span></button>
-      <button class="js-lb" type="button" data-cap="Котеджі на палях серед смерек"><img src="img/cottages-stairs.jpg" width="900" height="1200" alt="Дерев'яні котеджі з терасами на палях, сходи, смереки й газон" loading="lazy" decoding="async"><span>Котеджі серед смерек</span></button>
-      <p class="pnote" role="note"><svg class="i" aria-hidden="true"><use href="#i-info"/></svg><span>Тут фото гостей з Google-картки. У робочій версії поставимо ваші знімки кожного котеджу, зсередини і ззовні.</span></p>
+      <button class="js-lb" type="button" data-cap="Вітальня в котеджі: диван і обідній стіл, фото господині"><img src="img/o-living-w.jpg" width="1200" height="900" alt="Вітальня з дерев'яними стінами: сірий розкладний диван, обідній стіл з чотирма стільцями, картина з лісом" loading="lazy" decoding="async"><span class="own-mark">фото господині</span><span>Вітальня</span></button>
+      <button class="js-lb" type="button" data-cap="Кухня в котеджі, фото господині"><img src="img/o-kitchen-w.jpg" width="990" height="742" alt="Кухня з дерев'яними стінами: мийка, мікрохвильовка, чайник, холодильник, обідній стіл зі стільцями, телевізор на стіні" loading="lazy" decoding="async"><span class="own-mark">фото господині</span><span>Кухня</span></button>
+      <button class="js-lb" type="button" data-cap="Спальня з дерев'яним двоспальним ліжком, фото господині"><img src="img/o-bedroom-w.jpg" width="1200" height="900" alt="Світла спальня: дерев'яне двоспальне ліжко, комод, тумба, плетений столик і крісло" loading="lazy" decoding="async"><span class="own-mark">фото господині</span><span>Спальня</span></button>
+      <button class="js-lb" type="button" data-cap="Кімната з великими вікнами і виходом на терасу, фото господині"><img src="img/o-bedroom-terrace-w.jpg" width="1200" height="900" alt="Кімната з великими вікнами: плетені крісла й столик, скляні двері на терасу з лежаками, піч, двоспальне ліжко" loading="lazy" decoding="async"><span class="own-mark">фото господині</span><span>Вихід на терасу</span></button>
+      <p class="pnote" role="note"><svg class="i" aria-hidden="true"><use href="#i-info"/></svg><span>Інтер'єри на фото господині. Який котедж на якому знімку, підпишемо, коли уточнимо з вами.</span></p>
     </div>
     <div class="hnotes" data-rv>
       <p><svg class="i" aria-hidden="true"><use href="#i-broom"/></svg><span>Прибирання за потреби. Постіль і рушники, по два на гостя, міняють раз на 4 дні.</span></p>
@@ -1165,11 +1165,11 @@ textarea.inp{height:auto;min-height:92px;padding:13px 14px;line-height:1.45;resi
       </div>
       <p class="lead">Котеджі стоять серед смерек на облаштованій території з бруківкою і газоном, неподалік починається ліс. Біля котеджів басейн, а з великої гойдалки на горі відкривається краєвид на гори.</p>
     </div>
-    <ol class="tiles" aria-label="Садиба на фото гостей" data-rv>
+    <ol class="tiles" aria-label="Садиба на фото господині й гостей" data-rv>
       <li><figure class="tile"><img src="img/pool-above.jpg" width="900" height="1200" alt="Басейн з блакитною водою згори, шезлонги й парасолі на зеленому покритті, за парканом схил гори" loading="lazy" decoding="async"><figcaption><b>Басейн</b>З підігрівом, улітку</figcaption></figure></li>
-      <li><figure class="tile"><img src="img/playground-t.jpg" width="900" height="1200" alt="Дерев'яний дитячий майданчик з гіркою, поруч батут із сіткою і лавки" loading="lazy" decoding="async"><figcaption><b>Дітям</b>Гірка, батут, гойдалки</figcaption></figure></li>
-      <li><figure class="tile"><img src="img/big-swing.jpg" width="900" height="1200" alt="Велика дерев'яна гойдалка на схилі над долиною, вечірнє небо" loading="lazy" decoding="async"><figcaption><b>Гойдалка</b>На горі, з краєвидом</figcaption></figure></li>
-      <li><figure class="tile"><img src="img/cottage-firs.jpg" width="900" height="1200" alt="Дерев'яний котедж на палях з критою терасою між двома смереками" loading="lazy" decoding="async"><figcaption><b>Котеджі</b>Тераси серед смерек</figcaption></figure></li>
+      <li><figure class="tile"><img src="img/o-playground.jpg" width="900" height="1200" alt="Дитячий майданчик: дерев'яна гірка з червоним спуском, батут із сіткою, гойдалка і столик з лавками, за ними осінній ліс" loading="lazy" decoding="async"><span class="own-mark">фото господині</span><figcaption><b>Дітям</b>Гірка, батут, гойдалки</figcaption></figure></li>
+      <li><figure class="tile"><img src="img/o-terrace.jpg" width="880" height="1173" alt="Крита дерев'яна тераса: два розкладні лежаки, підвісне крісло, великі скляні двері" loading="lazy" decoding="async"><span class="own-mark">фото господині</span><figcaption><b>Тераса</b>Лежаки й підвісне крісло</figcaption></figure></li>
+      <li><figure class="tile"><img src="img/o-terrace-view.jpg" width="640" height="853" alt="Вид з тераси на гору в осінньому лісі, внизу басейн з шезлонгами і парасолями" loading="lazy" decoding="async"><span class="own-mark">фото господині</span><figcaption><b>Краєвид</b>З тераси на гори</figcaption></figure></li>
     </ol>
     <div class="perk__grid">
       <ul class="perks" data-rv>
@@ -1255,7 +1255,7 @@ textarea.inp{height:auto;min-height:92px;padding:13px 14px;line-height:1.45;resi
         <div class="season__ph">
           <img src="img/season-autumn.jpg" width="1200" height="900" alt="Кам'янський водоспад восени: вода спадає між камінням, руде листя і смереки" loading="lazy" decoding="async">
           <p class="season__where"><svg class="i" aria-hidden="true"><use href="#i-pin"/></svg>Поруч: Кам'янський водоспад</p>
-          <figure class="season__inset"><img src="img/inset-autumn.jpg" width="420" height="420" alt="Зелена долина з будиночками під синім небом" loading="lazy" decoding="async"><figcaption>краєвид біля садиби</figcaption></figure>
+          <figure class="season__inset"><img src="img/o-autumn.jpg" width="420" height="420" alt="Гора в осінньому лісі, вид із садиби" loading="lazy" decoding="async"><figcaption>осінь на садибі</figcaption></figure>
           <p class="season__cr">Фото: <a href="https://commons.wikimedia.org/wiki/File:46-212-5007_NNP_Skolivski_Beskydy_Kamianka_Waterfall_RB.jpg" target="_blank" rel="noopener">Rbrechko</a>, CC BY-SA 4.0</p>
         </div>
         <div class="season__body">
@@ -1274,28 +1274,32 @@ textarea.inp{height:auto;min-height:92px;padding:13px 14px;line-height:1.45;resi
     <div class="head" data-rv>
       <p class="eyebrow">фото</p>
       <h2 id="gal-title">Садиба <em>на фото господині й гостей</em></h2>
-      <p class="lead">Перші три знімки надіслала господиня, решта з Google-картки садиби: котеджі, двір, басейн і зима в горах.</p>
+      <p class="lead">Перші десять знімків надіслала господиня, решта з Google-картки садиби: котеджі, двір, басейн і зима в горах.</p>
     </div>
     <div class="gal" id="gal">
       <button class="js-lb w2 h2" type="button" data-cap="Басейн з шезлонгами і краєвидом на гори, фото господині"><img src="img/pool-mountains.jpg" width="720" height="960" alt="Басейн з білими шезлонгами, за парканом ліс на горі" loading="lazy" decoding="async"><span class="own-mark">фото господині</span></button>
       <button class="js-lb h2" type="button" data-cap="Котеджі з терасами біля басейну, фото господині"><img src="img/cottages-pool.jpg" width="900" height="1200" alt="Два дерев'яні котеджі з терасами біля басейну" loading="lazy" decoding="async"><span class="own-mark">фото господині</span></button>
       <button class="js-lb h2" type="button" data-cap="Котедж з критою терасою, фото господині"><img src="img/cottage-terrace.jpg" width="900" height="1200" alt="Дерев'яний котедж з критою терасою, шезлонги перед ним" loading="lazy" decoding="async"><span class="own-mark">фото господині</span></button>
-      <button class="js-lb w2" type="button" data-cap="Великий котедж на кам'яному цоколі"><img src="img/cottage-big.jpg" width="1200" height="900" alt="Великий дерев'яний котедж з балконами на кам'яному цоколі" loading="lazy" decoding="async"></button>
+      <button class="js-lb h2" type="button" data-cap="Дитячий майданчик, фото господині"><img src="img/o-playground.jpg" width="900" height="1200" alt="Гірка з червоним спуском, батут, гойдалка і столик з лавками" loading="lazy" decoding="async"><span class="own-mark">фото господині</span></button>
+      <button class="js-lb h2" type="button" data-cap="Вид з тераси на гори і басейн, фото господині"><img src="img/o-terrace-view.jpg" width="640" height="853" alt="Гора в осінньому лісі, внизу басейн з шезлонгами" loading="lazy" decoding="async"><span class="own-mark">фото господині</span></button>
+      <button class="js-lb h2" type="button" data-cap="Тераса з лежаками і підвісним кріслом, фото господині"><img src="img/o-terrace.jpg" width="880" height="1173" alt="Крита тераса з лежаками, підвісним кріслом і скляними дверима" loading="lazy" decoding="async"><span class="own-mark">фото господині</span></button>
+      <button class="js-lb h2" type="button" data-cap="Вітальня в котеджі, фото господині"><img src="img/o-living.jpg" width="900" height="1200" alt="Вітальня з диваном і обіднім столом" loading="lazy" decoding="async"><span class="own-mark">фото господині</span></button>
+      <button class="js-lb h2" type="button" data-cap="Кухня в котеджі, фото господині"><img src="img/o-kitchen.jpg" width="900" height="1200" alt="Кухня з мийкою, мікрохвильовкою, холодильником і обіднім столом" loading="lazy" decoding="async"><span class="own-mark">фото господині</span></button>
+      <button class="js-lb h2" type="button" data-cap="Спальня, фото господині"><img src="img/o-bedroom.jpg" width="900" height="1200" alt="Спальня з дерев'яним двоспальним ліжком і плетеними меблями" loading="lazy" decoding="async"><span class="own-mark">фото господині</span></button>
+      <button class="js-lb h2" type="button" data-cap="Кімната з великими вікнами і виходом на терасу, фото господині"><img src="img/o-bedroom-terrace.jpg" width="900" height="1200" alt="Кімната з великими вікнами, плетеними кріслами, піччю і виходом на терасу" loading="lazy" decoding="async"><span class="own-mark">фото господині</span></button>
       <button class="js-lb h2" type="button" data-cap="Басейн згори"><img src="img/pool-above.jpg" width="900" height="1200" alt="Басейн з шезлонгами згори" loading="lazy" decoding="async"></button>
-      <button class="js-lb h2" type="button" data-cap="Велика гойдалка на горі над садибою"><img src="img/big-swing.jpg" width="900" height="1200" alt="Велика дерев'яна гойдалка на схилі" loading="lazy" decoding="async"></button>
-      <button class="js-lb w2" type="button" data-cap="Котеджі з терасами"><img src="img/cottages-terraces.jpg" width="1200" height="900" alt="Котеджі з критими терасами і смереки" loading="lazy" decoding="async"></button>
+      <button class="js-lb w2" type="button" data-cap="Великий котедж на кам'яному цоколі"><img src="img/cottage-big.jpg" width="1200" height="900" alt="Великий дерев'яний котедж з балконами на кам'яному цоколі" loading="lazy" decoding="async"></button>
+      <button class="js-lb h2" type="button" data-cap="Велика гойдалка на горі"><img src="img/big-swing.jpg" width="900" height="1200" alt="Велика дерев'яна гойдалка на схилі" loading="lazy" decoding="async"></button>
       <button class="js-lb h2" type="button" data-cap="Зима з тераси: котедж серед засніжених смерек"><img src="img/winter-terrace.jpg" width="900" height="1200" alt="Хрестове поруччя тераси, за ним засніжені смереки і котедж" loading="lazy" decoding="async"></button>
+      <button class="js-lb w2" type="button" data-cap="Котеджі з терасами"><img src="img/cottages-terraces.jpg" width="1200" height="900" alt="Котеджі з критими терасами і смереки" loading="lazy" decoding="async"></button>
       <button class="js-lb h2" type="button" data-cap="Котедж у снігу"><img src="img/winter-aframe.jpg" width="900" height="1200" alt="Котедж зі стрімким засніженим дахом і смерека" loading="lazy" decoding="async"></button>
       <button class="js-lb h2" type="button" data-cap="Долина біля садиби влітку"><img src="img/valley-summer.jpg" width="900" height="1200" alt="Зелена долина, ліс на горах і хмари" loading="lazy" decoding="async"></button>
-      <button class="js-lb h2" type="button" data-cap="Гойдалки і доріжка до дитячого майданчика"><img src="img/swings-path.jpg" width="900" height="1200" alt="Кам'яна доріжка, гойдалки й дитячий майданчик над долиною" loading="lazy" decoding="async"></button>
       <button class="js-lb w2" type="button" data-cap="Орявчик і гори навколо"><img src="img/village-view.jpg" width="1600" height="900" alt="Село в долині, дерев'яні будинки й зелені пагорби" loading="lazy" decoding="async"></button>
       <button class="js-lb w2" type="button" data-cap="Смереки в снігу і котедж"><img src="img/winter-forest.jpg" width="1200" height="900" alt="Засніжений ліс і дах котеджу серед смерек" loading="lazy" decoding="async"></button>
-      <button class="js-lb h2" type="button" data-cap="Котеджі зі сходами серед смерек"><img src="img/cottages-stairs.jpg" width="900" height="1200" alt="Котеджі з терасами на палях, сходи і газон" loading="lazy" decoding="async"></button>
       <button class="js-lb h2" type="button" data-cap="Котедж між смереками"><img src="img/cottage-firs.jpg" width="900" height="1200" alt="Котедж з критою терасою між смереками" loading="lazy" decoding="async"></button>
       <button class="js-lb h2" type="button" data-cap="Сходи до котеджу взимку"><img src="img/winter-stairs.jpg" width="900" height="1200" alt="Засніжена смерека і сходи до котеджу" loading="lazy" decoding="async"></button>
-      <button class="js-lb h2" type="button" data-cap="Вид з тераси на долину"><img src="img/terrace-road.jpg" width="900" height="1200" alt="З тераси видно долину, дорогу і ліс на горах" loading="lazy" decoding="async"></button>
       <button class="js-lb w2" type="button" data-cap="Котедж зі стрімким дахом влітку"><img src="img/cottage-aframe.jpg" width="1200" height="900" alt="Дерев'яний котедж зі стрімким дахом, газон і смерека" loading="lazy" decoding="async"></button>
-      <button class="js-lb w2" type="button" data-cap="Дитячий майданчик і батут"><img src="img/playground.jpg" width="1200" height="900" alt="Дерев'яний майданчик з гіркою, батут і лавки" loading="lazy" decoding="async"></button>
+      <button class="js-lb w2" type="button" data-cap="Котеджі з терасами над газоном"><img src="img/cottages-lawn.jpg" width="1200" height="900" alt="Котеджі з терасами, смереки і газон" loading="lazy" decoding="async"></button>
     </div>
     <p class="gal__hint">Натисніть на фото, щоб розгорнути.</p>
   </div>
@@ -1563,7 +1567,7 @@ textarea.inp{height:auto;min-height:92px;padding:13px 14px;line-height:1.45;resi
       </details>
       <details>
         <summary>Можна з дітьми?<span class="pm" aria-hidden="true"><svg class="i"><use href="#i-plus"/></svg></span></summary>
-        <div class="ans"><p>Так. На території дитячий майданчик з гіркою, батут і гойдалки, улітку басейн з підігрівом. У котеджах до 4 і до 8 гостей є двоярусні ліжка. Якщо потрібне дитяче ліжечко, запитайте господиню, коли бронюєте.</p><small>Джерела: karpaty.info, відгуки й фото в Google</small></div>
+        <div class="ans"><p>Так. На території дитячий майданчик з гіркою, батут і гойдалки, улітку басейн з підігрівом. У котеджах до 4 і до 8 гостей є двоярусні ліжка. Якщо потрібне дитяче ліжечко, запитайте господиню, коли бронюєте.</p><small>Джерела: karpaty.info, відгуки в Google, фото господині</small></div>
       </details>
       <details>
         <summary>Можна з собакою?<span class="pm" aria-hidden="true"><svg class="i"><use href="#i-plus"/></svg></span></summary>
@@ -1637,7 +1641,7 @@ textarea.inp{height:auto;min-height:92px;padding:13px 14px;line-height:1.45;resi
       </div>
     </div>
     <div class="foot__credits">
-      <p>Фото басейну й котеджів у першому блоці та галереї: господиня садиби. Інші фото садиби: Google-картка, знімки гостей. Настроєве відео на першому екрані зібране для прототипу.</p>
+      <p>Фото з позначкою «фото господині»: господиня садиби, пані Оксана. Інші фото садиби: Google-картка, знімки гостей. Настроєве відео на першому екрані зібране для прототипу.</p>
       <p>Фото околиць: Wikimedia Commons. <a href="https://commons.wikimedia.org/wiki/File:46-245-0022_Orjavchyk_6-7.12.2013.JPG" target="_blank" rel="noopener">Зарко Катерина</a> (CC BY-SA 3.0), <a href="https://commons.wikimedia.org/wiki/File:Oriavchyk_01.jpg" target="_blank" rel="noopener">Dmytro Petishkin</a> (CC BY 4.0, також <a href="https://commons.wikimedia.org/wiki/File:Oriavchyk_04.jpg" target="_blank" rel="noopener">вид на Орявчик</a>), <a href="https://commons.wikimedia.org/wiki/File:46-212-5007_NNP_Skolivski_Beskydy_Kamianka_Waterfall_RB.jpg" target="_blank" rel="noopener">Rbrechko</a> (CC BY-SA 4.0), <a href="https://commons.wikimedia.org/wiki/File:%D0%A5%D1%80%D0%B5%D0%B1%D0%B5%D1%82_%D0%9F%D0%B0%D1%80%D0%B0%D1%88%D0%BA%D0%B0_17(26).jpg" target="_blank" rel="noopener">Петроченко Віктор Іванович</a> (CC BY 4.0). Обрізано й зменшено.</p>
       <p>Опис котеджів, ціни й дорога: сторінка садиби на karpaty.info, Instagram садиби. Відстані: karpaty.info і OpenStreetMap.</p>
       <p>Оцінка й цитати: відгуки гостей у Google, станом на 05.10.2026.</p>
